@@ -1,0 +1,157 @@
+/* .hero{
+    height: 100vh;
+    background: linear-gradient(180deg,#fde1ff,#e1ffea22 60%);
+    display: flex;
+}
+.hero-left{
+    flex: 1;
+    display: column;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 180px;
+    line-height: 1.1;
+}
+.hero img {
+    width: 250px; 
+    height: auto;  
+    max-width: 100%;
+  }
+  
+  .hero-hand-icon img {
+    width: 180px; 
+    height: auto;
+  }
+  
+  .hero-latest-btn img {
+    width: 200px; 
+    height: auto;
+  }
+  
+.hero-left{
+    color: #090909;
+    font-size: 26px;
+    font-weight: 600px;
+}
+.hero-left p{
+    color: #171717;
+    font-size: 100px;
+    font-weight: 700;
+}
+.hero-hand-icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hero-hand-icon img{
+    width: 105px;
+}
+.hero-latest-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 310px;
+    height: 70px;
+    border-radius: 75px;
+    margin-top: 30px;
+    background: red;
+    color: white;
+    font-size:32px;
+    font-weight: 500;
+}
+.hero-right{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+.hero {
+    height: 100vh;
+    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+/* Left Section */
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    color: #090909;
+}
+
+.hero-left h2 {
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.hero-left p {
+    font-size: 80px; /* Adjusted size */
+    font-weight: 700;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.hero-hand-icon {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hero-hand-icon img {
+    width: 80px; /* Adjusted hand icon size */
+    height: auto;
+}
+
+/* Button Styling */
+.hero-latest-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px; /* Adjusted width */
+    height: 75px;
+    border-radius: 75px;
+    margin-top: 20px;
+    background: red;
+    color: white;
+    font-size: 24px; /* Adjusted font size */
+    font-weight: 500;
+    padding: 0 25px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.hero-latest-btn div {
+    flex: 1; /* Ensures text is centered */
+    text-align: center;
+}
+
+.hero-latest-btn img {
+    width: 30px; /* Adjusted arrow size */
+    height: auto;
+    position: absolute;
+    right: 20px; /* Aligns arrow properly */
+}
+
+/* Right Section */
+.hero-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-right img {
+    width: 450px; /* Increase watch size */
+    max-width: 100%;
+    height: auto;
+}
