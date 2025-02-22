@@ -1,0 +1,75 @@
+.newsletter {
+    width: 65%;
+    height: auto; /* Adjusted height to be flexible based on content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    margin: auto;
+    padding: 20px 40px; /* Adjusted padding for better alignment */
+    margin-bottom: 50px;  /* Adjusted margin-bottom for balance */
+    background: linear-gradient(180deg, #a2c2f2 0%, #d9e7ff 60%);
+    gap: 20px; /* Consistent gap between sections */
+}
+
+@media (max-width: 768px) {
+    .newsletter {
+        width: 85%; /* Make it slightly wider for smaller screens */
+        padding: 20px 20px; /* Adjust padding for mobile */
+        margin-bottom: 30px;  /* Slightly reduced bottom margin for smaller screens */
+    }
+}
+
+
+.newsletter h1 {
+    color: #454545;
+    font-size: 45px;  /* Reduced font size for better fit */
+    font-weight: 600;
+    text-align: center;
+}
+
+.newsletter p {
+    color: #454545;
+    font-size: 18px;  /* Reduced font size */
+    text-align: center;
+}
+
+.newsletter div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    width: 600px;  /* Reduced width */
+    height: 50px;  /* Reduced height */
+    border-radius: 50px;  /* Adjusted border-radius */
+    border: 1px solid #e3e3e3;
+    padding: 0 15px;  /* Added padding for input and button spacing */
+}
+
+.newsletter input {
+    width: 400px;  /* Reduced width */
+    height: 40px;  /* Adjusted input height */
+    margin-left: 20px;  /* Adjusted margin for better alignment */
+    border: none;
+    outline: none;
+    color: #616161;
+    font-family: Poppins;
+    font-size: 16px;
+    padding-left: 10px;  /* Added padding inside input */
+}
+
+.newsletter div button {
+    width: 150px;  /* Reduced button width */
+    height: 50px;  /* Adjusted button height */
+    border-radius: 50px;  /* Adjusted button border-radius */
+    background: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;  /* Removed border */
+}
+
+.newsletter div button:hover {
+    background-color: #333;  /* Hover effect */
+}

@@ -68,7 +68,7 @@
 } */
 .hero {
     height: 100vh;
-    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+    background: linear-gradient(180deg, #a2c2f2 0%, #d9e7ff 60%);
     display: flex;
     align-items: center; /* Center content vertically */
     justify-content: space-between;
