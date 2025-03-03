@@ -1,0 +1,73 @@
+/* Banner Styling */
+.shopcategory-banner {
+    display: block;
+    margin: 30px auto;
+    width: 100%; /* Ensure the banner takes the full width of its container */
+    max-width: none; /* Remove max-width constraint, let it span the entire width */
+    height: auto; /* Maintain the aspect ratio of the banner */
+}
+
+/* Sort and Index Section */
+.shop-category-indexSort {
+    display: flex;
+    margin: 0px 170px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Sort Button Styling */
+.shopcategory-sort {
+    padding: 10px;
+    border-radius: 40px;
+    border: 1px solid #888;
+    display: flex;
+    align-items: center; /* Align icon and text vertically */
+}
+
+/* Dropdown Icon Resizing */
+.shopcategory-sort img {
+    width: 20px; /* Set width for dropdown icon */
+    height: 20px; /* Set height for dropdown icon */
+    margin-left: 5px; /* Add space between "Sort by" text and icon */
+}
+
+/* Text Styling for Sorting */
+.shop-category-indexSort p span {
+    font-weight: 600;
+}
+
+/* Product Grid Styling */
+.shopcategory-products {
+    margin: 20px 0; /* Adjust the margin for better alignment */
+    padding: 0 10px; /* Add padding to prevent products from touching the sides */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    row-gap: 80px;
+    column-gap: 20px;
+}
+
+/* Ensure images inside product grid scale well */
+.shopcategory-products img {
+    width: 100%;
+    object-fit: contain; /* Ensure images are resized correctly */
+}
+.shopcategory-loadmore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 150px auto;
+    width: 233px;
+    height: 69px;
+    border-radius: 75px;
+    background: #ededed;
+    color: #787878;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer; /* Indicates clickable button */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.shopcategory-loadmore:hover {
+    background-color: #787878; /* Darker background on hover */
+    color: #fff; /* White text on hover */
+}

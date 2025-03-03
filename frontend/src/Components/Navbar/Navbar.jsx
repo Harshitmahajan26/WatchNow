@@ -5,7 +5,7 @@ import cart from '../Assets/cart.png'
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const [menu, setMenu] = useState("shop");
+const [menu, setMenu] = useState("shop");
   
 
   return (
@@ -18,7 +18,7 @@ const Navbar = () => {
         <li onClick={()=>{setMenu("shop")}}><Link style={{textDecoration:'none'}} to='/'>Shop</Link>{menu==="shop"?<hr/>:<></>}</li>
         <li onClick={()=>{setMenu("mens")}}><Link style={{textDecoration:'none'}} to='/mens'>Men's Watches</Link>{menu==="mens"?<hr/>:<></>}</li>
         <li onClick={()=>{setMenu("womens")}}><Link style={{textDecoration:'none'}} to='/womens'>Women's Watches</Link>{menu==="womens"?<hr/>:<></>}</li>
-        <li onClick={()=>{setMenu("kids")}}><Link style={{textDecoration:'none'}} to='/kids'>Kids Watches</Link>{menu==="kids"?<hr/>:<></>}</li>
+        {/* <li onClick={()=>{setMenu("kids")}}><Link style={{textDecoration:'none'}} to='/kids'>Kids Watches</Link>{menu==="kids"?<hr/>:<></>}</li> */}
       </ul>
       <div className='nav-login-cart'>
       <Link to='/login'><button>Login</button></Link>
