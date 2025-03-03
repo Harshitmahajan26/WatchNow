@@ -1,4 +1,4 @@
-import db from '../db.js';
+import db from '../config/db.js';
 
 const createUsersTable = async () => {
     try {
@@ -14,6 +14,8 @@ const createUsersTable = async () => {
         console.log("✅ Users table is ready!");
     } catch (error) {
         console.error("❌ Error creating users table:", error.message);
+    } finally {
+        process.exit();  // Ensures the script exits after execution
     }
 };
 
