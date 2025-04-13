@@ -1,52 +1,69 @@
 const new_collections = [
     {
-        id: 1,
-        name: "WatchNow Diamond Collection",
-        image: require("../Assets/new_collection_1.webp"),
-        description: "A luxurious collection of diamond-studded watches with elegant designs."
+      id: 1,
+      name: "WatchNow Diamond Collection",
+      image: "new_collection/new_collection_1.webp",
+      price: 199.99,
+      currency: "₹",
+      description: "Elegant diamond watch for women.",
     },
     {
-        id: 2,
-        name: "WatchNow Silver Collection",
-        image: require("../Assets/new_collection_2.webp"),
-        description: "A sleek range of watches with a refined silver finish."
+      id: 2,
+      name: "WatchNow Silver Collection",
+      image: "new_collection/new_collection_2.webp",
+      price: 149.99,
+      currency: "₹",
+      description: "Shimmering silver watch for everyday wear.",
     },
     {
-        id: 3,
-        name: "WatchNow Gold Collection",
-        image: require("../Assets/new_collection_3.webp"),
-        description: "A stunning collection of gold watches with intricate detailing."
+      id: 3,
+      name: "WatchNow Royal Blue Edition",
+      image: "new_collection/new_collection_3.webp",
+      price: 179.99,
+      currency: "₹",
+      description: "Luxurious royal blue timepiece.",
     },
     {
-        id: 4,
-        name: "WatchNow Classic Collection",
-        image: require("../Assets/new_collection_4.webp"),
-        description: "Timeless classic designs for every occasion, with a touch of sophistication."
+      id: 4,
+      name: "WatchNow Classic Leather",
+      image: "new_collection/new_collection_4.webp",
+      price: 129.99,
+      currency: "₹",
+      description: "Timeless leather strap watch.",
     },
     {
-        id: 5,
-        name: "WatchNow Sport Collection",
-        image: require("../Assets/new_collection_5.webp"),
-        description: "A durable and stylish collection of sports watches designed for active lifestyles."
+      id: 5,
+      name: "WatchNow Minimalist Gold",
+      image: "new_collection/new_collection_5.webp",
+      price: 189.99,
+      currency: "₹",
+      description: "Minimal design with golden tones.",
     },
     {
-        id: 6,
-        name: "WatchNow Luxury Collection",
-        image: require("../Assets/new_collection_6.webp"),
-        description: "Exclusive luxury watches with premium materials and craftsmanship."
+      id: 6,
+      name: "WatchNow Modern Chronograph",
+      image: "new_collection/new_collection_6.webp",
+      price: 209.99,
+      currency: "₹",
+      description: "Precision chronograph with modern aesthetics.",
     },
     {
-        id: 7,
-        name: "WatchNow Vintage Collection",
-        image: require("../Assets/new_collection_7.webp"),
-        description: "A collection inspired by vintage styles, offering a touch of nostalgia."
+      id: 7,
+      name: "WatchNow Rose Elegance",
+      image: "new_collection/new_collection_7.webp",
+      price: 169.99,
+      currency: "₹",
+      description: "Feminine rose gold elegance.",
     },
     {
-        id: 8,
-        name: "WatchNow Elegant Collection",
-        image: require("../Assets/new_collection_8.webp"),
-        description: "An elegant collection of watches featuring delicate designs and timeless beauty."
-    }
-];
-
-export default new_collections;
+      id: 8,
+      name: "WatchNow Midnight Edition",
+      image: "new_collection/new_collection_8.webp",
+      price: 219.99,
+      currency: "₹",
+      description: "Bold and sleek midnight-black design.",
+    },
+  ];
+  
+  export default new_collections;
+  

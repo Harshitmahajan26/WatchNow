@@ -1,64 +1,71 @@
-import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
-import User from '../models/User.js';
+import pool from '../db.js';
+import crypto from 'crypto';
 
-// Use process.env.JWT_SECRET directly
-const JWT_SECRET = process.env.JWT_SECRET;
+// 🔐 Helper: Hash password using MD5
+const hashPassword = (password) => {
+  return crypto.createHash('md5').update(password).digest('hex');
+};
 
-export async function register(req, res) {
+// 🚀 Register User
+export const registerUser = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  if (!name || !email || !password)
+    return res.status(400).json({ message: "Please fill in all fields" });
+
   try {
-    const { name, email, password } = req.body;
-    const userId = await User.create({ name, email, password });
-    
-    const token = jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: '1h' });
+    const [existingUsers] = await pool.query(
+      "SELECT * FROM users WHERE email = ?",
+      [email]
+    );
 
-    res.status(201).json({ 
-      message: 'User registered successfully',
-      token
-    });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-}
-
-export async function login(req, res) {
-  try {
-    const { email, password } = req.body;
-    const user = await User.findByEmail(email);
-    
-    if (!user || !(await bcrypt.compare(password, user.password))) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+    if (existingUsers.length > 0) {
+      return res.status(409).json({ message: "Email already registered" });
     }
-    
-    const token = jwt.sign({ id: user.id }, JWT_SECRET, { expiresIn: '1h' });
 
-    res.json({ 
-      message: 'Login successful',
-      token
-    });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const hashedPassword = hashPassword(password);
+
+    await pool.query(
+      "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+      [name, email, hashedPassword]
+    );
+
+    // Optional: return user details (except password)
+    const [users] = await pool.query(
+      "SELECT id, name, email FROM users WHERE email = ?",
+      [email]
+    );
+
+    res.status(201).json({ message: "User registered successfully", user: users[0] });
+  } catch (err) {
+    console.error("Registration Error:", err);
+    res.status(500).json({ message: "Server error" });
   }
-}
+};
 
-export async function getProfile(req, res) {
+// 🔐 Login User
+export const loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password)
+    return res.status(400).json({ message: "Please fill in all fields" });
+
   try {
-    const user = await User.findById(req.user.id);  // Fixed: Fetch user by ID instead of email
-    if (!user) return res.status(404).json({ error: 'User not found' });
-    
-    res.json({ user });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-}
+    const hashedPassword = hashPassword(password);
 
-export async function updateProfile(req, res) {
-  try {
-    const { name, email } = req.body;
-    await User.update(req.user.id, { name, email });
-    
-    res.json({ message: 'Profile updated successfully' });
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    const [users] = await pool.query(
+      "SELECT id, name, email FROM users WHERE email = ? AND password = ?",
+      [email, hashedPassword]
+    );
+
+    if (users.length === 0) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+
+    const user = users[0];
+    res.json({ message: "Login successful", user });
+  } catch (err) {
+    console.error("Login Error:", err);
+    res.status(500).json({ message: "Server error" });
   }
-}
+};
