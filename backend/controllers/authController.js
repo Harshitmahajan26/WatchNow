@@ -81,7 +81,7 @@ const hashPassword = async (password) => {
   return bcrypt.hash(password, saltRounds);
 };
 
-// 🚀 Register User
+//  Register User
 export const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -118,7 +118,7 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// 🔐 Login User
+//  Login User
 export const loginUser = async (req, res) => {
   const { email, password } = req.body;
 

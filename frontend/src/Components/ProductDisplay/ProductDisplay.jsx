@@ -14,6 +14,8 @@ const ProductDisplay = ({ product }) => {
   const fullImageUrl = product.image?.startsWith('http')
     ? product.image
     : `http://localhost:5000/images/${product.image}`;
+    console.log(fullImageUrl);
+
 
   const renderStaticStars = () => (
     <>
@@ -24,6 +26,7 @@ const ProductDisplay = ({ product }) => {
       <img src={star_dull_icon} alt="half star" />
     </>
   );
+ 
 
   return (
     <div className='productdisplay'>

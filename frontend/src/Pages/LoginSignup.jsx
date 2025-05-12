@@ -2,14 +2,14 @@ import React, { useState, useContext } from 'react';
 import './CSS/LoginSignup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../Context/UserContext';  // Ensure correct import
+import { UserContext } from '../Context/UserContext';  
 
 const LoginSignup = () => {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
   const [isLogin, setIsLogin] = useState(false);
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const { login } = useContext(UserContext);  // Use the login function from UserContext
+  const { login } = useContext(UserContext); 
   const navigate = useNavigate();
 
   const handleChange = (e) => {
