@@ -90,7 +90,6 @@
 // export default Cart;
 
 
-
 import React, { useContext } from "react";
 import "./CSS/Cart.css";
 import { ShopContext } from "../Context/ShopContext";
@@ -102,7 +101,7 @@ const Cart = () => {
   const { user } = useContext(UserContext);
   const {
     cartItems,
-    all_product, // ✅ using alias
+    all_product,
     removeFromCart,
     getTotalCartAmount,
     addToCart,
@@ -110,6 +109,35 @@ const Cart = () => {
   } = useContext(ShopContext);
 
   const totalAmount = getTotalCartAmount();
+
+  const handleCheckout = async () => {
+    try {
+      const cartData = all_product
+        .filter(product => cartItems[product.id] > 0)
+        .map(product => ({
+          id: product.id,
+          name: product.name,
+          price: product.new_price || product.price,
+          quantity: cartItems[product.id],
+        }));
+
+      const res = await fetch("http://localhost:5000/api/create-checkout-session", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartItems: cartData }),
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url; // Redirect to Stripe Checkout
+      }
+    } catch (error) {
+      console.error("Checkout error:", error);
+      alert("Payment failed. Please try again.");
+    }
+  };
 
   if (!user) {
     return (
@@ -187,7 +215,9 @@ const Cart = () => {
           <div className="cart-summary">
             <h3>Cart Summary</h3>
             <p>Total: ₹{totalAmount}</p>
-            <button className="checkout-btn">Proceed to Checkout</button>
+            <button className="checkout-btn" onClick={handleCheckout}>
+              Proceed to Checkout
+            </button>
           </div>
         </div>
       )}
